@@ -1,6 +1,11 @@
 KEEPALIVE_TIME = 15
+DEFAULT_LIMIT  = 10
 
 class AppRoute < Sinatra::Base
+  before do
+    content_type :json
+  end
+
   def initialize app
     super()
     @clients = []

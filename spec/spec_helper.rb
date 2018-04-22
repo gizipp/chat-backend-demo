@@ -1,4 +1,4 @@
-RACK_ENV = 'test'
+ENV["RACK_ENV"] ||= 'test'
 
 require './app.rb'
 require 'rack/test'
@@ -11,4 +11,8 @@ end
 RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include Mongoid::Matchers
+
+  config.before(:each) do
+    Mongoid.purge!
+  end
 end

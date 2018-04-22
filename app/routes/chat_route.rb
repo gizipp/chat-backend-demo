@@ -13,8 +13,17 @@ class ChatRoute < AppRoute
   end
 
   get '/v1/chat' do
-    content_type :json
-    m = Message.all
+    limit = params[:limit] || DEFAULT_LIMIT
+
+    if params[:before].present?
+      datetime = Time.iso8601(params[:before]
+                     .gsub(" ","+"))
+      m = Message.where( created_at: { :$lte => datetime } )
+                 .limit(limit)
+    else
+      m = Message.limit(limit)
+    end
+
     m.to_json
   end
 
