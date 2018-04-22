@@ -1,5 +1,9 @@
-require 'sinatra'
+require "./boot"
 
-get '/hello' do
-  'Hello Chat!'
+class App < Sinatra::Base
+  configure do
+    set :server, :puma
+  end
+
+  use ChatRoute
 end
