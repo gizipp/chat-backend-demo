@@ -1,21 +1,26 @@
 # Decision Docs
 
+## Problem Domain
+
+It's like chatroom. The client could send message, and retrieve the previous message. Since it's chat app, it needs to realtime.
+
 ## Language
 
-Using Ruby as main backend, because is to having a large standard library and easiest/minimal to create APIs.
-
-Risk :
-- Ruby tends to be more slow and consume more memory
-
-Benefits :
-- More agile and great for prototyping
-
-Solution :
-- Keep on horizontal scaling until scale out, and create next version in Go/Node.js
+Using Ruby as main backend, because is to having a large standard library and easiest/minimal effort to create APIs.
 
 Alternative :
 - Golang. Fast concurrency model. It's goroutines which saves memory and improves performance.
 - Node.js. We are using, mongoDb. Using node.js makes more effiecients.
+
+Benefits :
+- More agile and great for prototyping
+- Fast development
+
+Risk :
+- Ruby tends to be more slow and consume more memory
+
+Solution :
+- Keep on horizontal scaling until scale out, and prepare create next version in Go/Node.js
 
 # Web Server
 
@@ -35,7 +40,7 @@ Do versioning in the URI. This can be tractable and even esthetically pleasing. 
 
 ## Resources
 
-Chat in singular, because it more like single conversation in real world. Just in case, there are many chats in the future, the design would be :
+Chat in singular, because it more like single conversation (chatroom) in real world. Just in case, there are many chat(rooms) in the future, the design would be :
 
 ```
 https://chat-backend-demo.herokuapp.com/v1/chat #all conversation

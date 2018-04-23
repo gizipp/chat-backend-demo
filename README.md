@@ -9,7 +9,6 @@ A kind of basic chat API backend.
 
 # REST API
 
-### Endpoint
   - POST `/v1/chat`
   - GET `/v1/chat`
 
@@ -74,7 +73,7 @@ will returns queried result which contains 10 messages and all of these are crea
 
   via Curl
 
-  `curl -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: chat-backend-demo.herokuapp.com" -H "Origin: https://chat-backend-demo.herokuapp.com"`
+  `curl -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: chat-backend-demo.herokuapp.com" -H "Origin: https://chat-backend-demo.herokuapp.com" chat-backend-demo.herokuapp.com/v1/chat/stream`
 
    Result :
 
