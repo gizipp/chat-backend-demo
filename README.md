@@ -43,7 +43,8 @@ Optional query parameters are :
     {
       "before": "time with ISO8601 format",
       "limit": limit_number,
-  }```
+  }
+  ```
 
   response JSON:
 
