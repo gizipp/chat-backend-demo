@@ -60,7 +60,7 @@ Optional query parameters are :
 
 #### Example Usage:
 
-`curl -X GET 'https://chat-backend-demo.herokuapp.com/v1/chat?before=2018-04-23T04:14:12+70:00&limit=5'`
+`curl -X GET 'https://chat-backend-demo.herokuapp.com/v1/chat?before=2018-04-23T04:14:12+07:00&limit=5'`
 
 will returns queried result which contains 10 messages and all of these are created before 2018/04/23 04:14:12
 

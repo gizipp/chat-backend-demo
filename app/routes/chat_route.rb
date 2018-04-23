@@ -15,16 +15,21 @@ class ChatRoute < AppRoute
   get '/v1/chat' do
     limit = params[:limit] || DEFAULT_LIMIT
 
-    if params[:before].present?
-      datetime = Time.iso8601(params[:before]
-                     .gsub(" ","+"))
-      m = Message.where( created_at: { :$lte => datetime } )
-                 .limit(limit)
-    else
-      m = Message.limit(limit)
-    end
+    begin
+      if params[:before].present?
+        datetime = Time.iso8601(params[:before]
+                       .gsub(" ","+"))
+        m = Message.where( created_at: { :$lte => datetime } )
+                   .limit(limit)
+      else
+        m = Message.limit(limit)
+      end
 
-    m.to_json
+      m.to_json
+
+    rescue
+      create_response( {"error" => "Invalid Params" }.to_json, 422 )
+    end
   end
 
   get '/v1/chat/stream' do
